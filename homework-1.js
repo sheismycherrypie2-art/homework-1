@@ -22,7 +22,8 @@ function maxTickets(budget, price) {
   let number = 0;
   let total = 0;
 
-  while (total + price <= budget) {
+  // При price = 0 возникнет зациклевание без проверки price > 0
+  while (price > 0 && total + price <= budget) {
     number++;
     total += price;
   }
